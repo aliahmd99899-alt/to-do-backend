@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule, ObserveInstrument } from './app.module'; // ← استورد ObserveInstrument
+import { AppModule, ObserveInstrument } from './app.module.js'; // ← استورد ObserveInstrument
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

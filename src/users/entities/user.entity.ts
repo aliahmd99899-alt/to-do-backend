@@ -6,8 +6,8 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import { Project } from '../../project/entities/project.entity';
-import { Task } from '../../task/entities/task.entity';
+import { Project } from '../../project/entities/project.entity.js';
+import { Task } from '../../task/entities/task.entity.js';
 
 @Entity('users')
 export class User {

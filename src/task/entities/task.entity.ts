@@ -8,9 +8,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Project } from '../../project/entities/project.entity';
-import { User } from '../../users/entities/user.entity';
-import { TaskCategory } from '../enums/task-category.enum';
+import { Project } from '../../project/entities/project.entity.js';
+import { User } from '../../users/entities/user.entity.js';
+import { TaskCategory } from '../enums/task-category.enum.js';
 
 @Entity('tasks')
 export class Task {

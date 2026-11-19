@@ -1,6 +1,6 @@
 import { Transform } from 'class-transformer';
 import { IsBoolean, IsEnum, IsOptional, IsUUID } from 'class-validator';
-import { TaskCategory } from '../enums/task-category.enum';
+import { TaskCategory } from '../enums/task-category.enum.js';
 
 const toBoolean = ({ value }: { value: unknown }): boolean | undefined => {
   if (value === undefined || value === '') return undefined;

@@ -1,5 +1,5 @@
 import { Expose } from 'class-transformer';
-import { TaskCategory } from '../enums/task-category.enum';
+import { TaskCategory } from '../enums/task-category.enum.js';
 
 export class ResponseTaskDto {
   @Expose() id: string;

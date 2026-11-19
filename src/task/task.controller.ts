@@ -15,13 +15,13 @@ import {
   HttpCode,
 } from '@nestjs/common';
 
-import { JwtAuthGuard } from '../users/jwt-auth.guard';
-import { TaskService } from './task.service';
-import { CreateTaskDto } from './dto/create-task.dto';
-import { UpdateTaskDto } from './dto/update-task.dto';
-import { QueryTasksDto } from './dto/query-tasks.dto';
-import { ResponseTaskDto } from './dto/response-task.dto';
-import { UserId } from '../common/decorators/user-id.decorator';
+import { JwtAuthGuard } from '../users/jwt-auth.guard.js';
+import { TaskService } from './task.service.js';
+import { CreateTaskDto } from './dto/create-task.dto.js';
+import { UpdateTaskDto } from './dto/update-task.dto.js';
+import { QueryTasksDto } from './dto/query-tasks.dto.js';
+import { ResponseTaskDto } from './dto/response-task.dto.js';
+import { UserId } from '../common/decorators/user-id.decorator.js';
 
 @Controller('tasks')
 @UseGuards(JwtAuthGuard)

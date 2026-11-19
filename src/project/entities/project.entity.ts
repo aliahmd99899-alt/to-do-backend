@@ -7,8 +7,8 @@ import {
   JoinColumn,
   CreateDateColumn,
 } from 'typeorm';
-import { User } from '../../users/entities/user.entity';
-import { Task } from '../../task/entities/task.entity';
+import { User } from '../../users/entities/user.entity.js';
+import { Task } from '../../task/entities/task.entity.js';
 
 @Entity('projects')
 export class Project {

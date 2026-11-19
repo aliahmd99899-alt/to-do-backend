@@ -2,10 +2,10 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindOptionsWhere, Repository } from 'typeorm';
 
-import { Task } from './entities/task.entity';
-import { CreateTaskDto } from './dto/create-task.dto';
-import { UpdateTaskDto } from './dto/update-task.dto';
-import { QueryTasksDto } from './dto/query-tasks.dto';
+import { Task } from './entities/task.entity.js';
+import { CreateTaskDto } from './dto/create-task.dto.js';
+import { UpdateTaskDto } from './dto/update-task.dto.js';
+import { QueryTasksDto } from './dto/query-tasks.dto.js';
 
 @Injectable()
 export class TaskService {
