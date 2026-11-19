@@ -5,10 +5,11 @@ import { createObserveModule } from '@nestjs/observe';
 import { UsersModule } from './users/users.module';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
-
+import {AppController} from './app.controller';
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
 @Module({
+  controllers: [AppController],
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRootAsync({
