@@ -1,0 +1,49 @@
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  Index,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Project } from '../../project/entities/project.entity';
+import { User } from '../../users/entities/user.entity';
+import { TaskCategory } from '../enums/task-category.enum';
+
+@Entity('tasks')
+export class Task {
+  @PrimaryGeneratedColumn('uuid') id: string;
+
+  @Column({ length: 200 }) title: string;
+
+  @Column({ type: 'enum', enum: TaskCategory, default: TaskCategory.WORK })
+  category: TaskCategory;
+
+  @Column({ type: 'date', nullable: true }) dueDate: string | null;
+
+  @Column({ default: false }) done: boolean;
+
+  @Column({ default: false }) archived: boolean;
+
+  @Column({ type: 'timestamptz', nullable: true }) completedAt: Date | null;
+
+  @ManyToOne(() => Project, (p) => p.tasks, {
+    nullable: true,
+    onDelete: 'SET NULL',
+  })
+  @JoinColumn({ name: 'projectId' })
+  project: Project | null;
+
+  @Column({ nullable: true }) projectId: string | null;
+
+  @ManyToOne(() => User, (u) => u.tasks, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' })
+  user: User;
+
+  @Index() @Column() userId: string;
+
+  @CreateDateColumn() createdAt: Date;
+  @UpdateDateColumn() updatedAt: Date;
+}
