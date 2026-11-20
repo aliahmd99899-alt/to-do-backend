@@ -1,13 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { createObserveModule } from '@nestjs/observe';
 import { UsersModule } from './users/users.module';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
 import { AppController } from './app.controller';
-
-export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
 @Module({
   controllers: [AppController],
@@ -22,11 +19,6 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
         autoLoadEntities: true,
         synchronize: true, // للتطوير فقط
       }),
-    }),
-    ObserveModule.forRoot({
-      appKey: process.env.OBSERVE_APP_KEY ?? 'YOUR_APP_KEY',
-      appSecret: process.env.OBSERVE_APP_SECRET ?? 'YOUR_APP_SECRET',
-      serviceId: 'to-do-backend',
     }),
     UsersModule,
     ProjectModule,
