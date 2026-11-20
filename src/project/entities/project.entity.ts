@@ -6,8 +6,8 @@ import {
   OneToMany,
   JoinColumn,
   CreateDateColumn,
-  Relation, // 1. قمنا بإضافة هذا الاستيراد
 } from 'typeorm';
+import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
 import { User } from '../../users/entities/user.entity.js';
 import { Task } from '../../task/entities/task.entity.js';
 
