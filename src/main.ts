@@ -16,8 +16,12 @@ async function bootstrap() {
     }),
   );
 
-  // Vercel سيقوم باعتراض هذا السطر تلقائياً وتحويله لـ Serverless
-  await app.listen(process.env.PORT ?? 3000);
+  // السماح للواجهة (React) بالاتصال بالـ API
+  app.enableCors();
+
+  // الاستماع على المنفذ الذي يحدده Fly وعلى 0.0.0.0
+  const port = process.env.PORT || 8080;
+  await app.listen(port, '0.0.0.0');
 }
 
 bootstrap();
