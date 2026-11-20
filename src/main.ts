@@ -18,12 +18,11 @@ async function bootstrap() {
     }),
   );
 
-  // 1. احذف السطر الخاص بـ listen تماماً
-  // await app.listen(3000);
+  // إعادة استدعاء listen أمر ضروري ليتعرف Vercel على الخادم
+  await app.listen(process.env.PORT ?? 3000);
 
-  // 2. أرجع التطبيق (app) بدلاً من تشغيله
-  return app; 
+  // تصدير التطبيق لـ Vercel
+  return app;
 }
 
-// 3. قم بتصدير الاستدعاء مرة واحدة فقط (احذف السطر bootstrap(); المنفصل)
 export default bootstrap();
