@@ -4,6 +4,7 @@ import {
   Column,
   OneToMany,
   CreateDateColumn,
+  Relation, // 1. أضفنا هذا الاستيراد
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { Project } from '../../project/entities/project.entity.js';
@@ -21,8 +22,12 @@ export class User {
   @Exclude({ toPlainOnly: true })
   password: string;
 
-  @OneToMany(() => Project, (p) => p.user) projects: Project[];
-  @OneToMany(() => Task, (t) => t.user) tasks: Task[];
+  // 2. قمنا بتغليف المصفوفات بـ Relation
+  @OneToMany(() => Project, (p) => p.user) 
+  projects: Relation<Project[]>;
+
+  @OneToMany(() => Task, (t) => t.user) 
+  tasks: Relation<Task[]>;
 
   @CreateDateColumn() createdAt: Date;
 }
