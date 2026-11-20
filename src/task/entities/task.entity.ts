@@ -7,8 +7,9 @@ import {
   Index,
   CreateDateColumn,
   UpdateDateColumn,
-  Relation, // 1. قمنا بإضافة هذا الاستيراد
+  
 } from 'typeorm';
+import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
 import { Project } from '../../project/entities/project.entity.js';
 import { User } from '../../users/entities/user.entity.js';
 import { TaskCategory } from '../enums/task-category.enum.js';
