@@ -1,13 +1,17 @@
+# fly.toml app configuration file generated for to-do-backend on 2026-11-20T08:56:55Z
+#
+# See https://docs.fly.io/reference/configuration for information about how to use this file.
+#
+
 app = 'to-do-backend'
-primary_region = 'sin'
+primary_region = 'fra'
 
 [build]
-
 [env]
   PORT = '8080'
 
 [http_service]
-  internal_port = 8080
+  internal_port = 3000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
@@ -18,3 +22,4 @@ primary_region = 'sin'
   memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 512
