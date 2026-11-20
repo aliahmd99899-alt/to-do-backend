@@ -16,12 +16,8 @@ async function bootstrap() {
     }),
   );
 
-  // تهيئة التطبيق دون بدء الاستماع
-  await app.init();
-
-  // إرجاع كائن التطبيق ليتعامل معه Vercel
-  return app.getHttpAdapter().getInstance(); 
+  // Vercel سيقوم باعتراض هذا السطر تلقائياً وتحويله لـ Serverless
+  await app.listen(process.env.PORT ?? 3000);
 }
 
-// تصدير الخادم ليتعرف عليه Vercel
-export default bootstrap();
+bootstrap();
