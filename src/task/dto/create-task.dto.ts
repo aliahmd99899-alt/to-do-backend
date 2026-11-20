@@ -8,7 +8,7 @@ import {
   IsUUID,
   MaxLength,
 } from 'class-validator';
-import { TaskCategory } from '../enums/task-category.enum.js';
+import { TaskCategory } from '../enums/task-category.enum';
 
 export class CreateTaskDto {
   @IsString()

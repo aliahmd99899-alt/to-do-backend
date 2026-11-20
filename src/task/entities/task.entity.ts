@@ -10,9 +10,9 @@ import {
   
 } from 'typeorm';
 import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
-import { Project } from '../../project/entities/project.entity.js';
-import { User } from '../../users/entities/user.entity.js';
-import { TaskCategory } from '../enums/task-category.enum.js';
+import { Project } from '../../project/entities/project.entity';
+import { User } from '../../users/entities/user.entity';
+import { TaskCategory } from '../enums/task-category.enum';
 
 @Entity('tasks')
 export class Task {

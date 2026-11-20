@@ -7,8 +7,8 @@ import {
 } from 'typeorm';
 import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
 import { Exclude } from 'class-transformer';
-import { Project } from '../../project/entities/project.entity.js';
-import { Task } from '../../task/entities/task.entity.js';
+import { Project } from '../../project/entities/project.entity';
+import { Task } from '../../task/entities/task.entity';
 
 @Entity('users')
 export class User {

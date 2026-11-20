@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { createObserveModule } from '@nestjs/observe';
-import { UsersModule } from './users/users.module.js';
-import { ProjectModule } from './project/project.module.js';
-import { TaskModule } from './task/task.module.js';
-import { AppController } from './app.controller.js';
+import { UsersModule } from './users/users.module';
+import { ProjectModule } from './project/project.module';
+import { TaskModule } from './task/task.module';
+import { AppController } from './app.controller';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 

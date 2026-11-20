@@ -11,14 +11,14 @@ import {
   SerializeOptions,
   Request,
 } from '@nestjs/common';
-import { JwtAuthGuard } from '../users/jwt-auth.guard.js';
+import { JwtAuthGuard } from '../users/jwt-auth.guard';
 
-import { UsersService } from './users.service.js';
-import { CreateUserDto } from './dto/create-user.dto.js';
-import { UpdateUserDto } from './dto/update-user.dto.js';
-import { ResponseUserDto } from './dto/response-user.dto.js';
-import {LoginDto} from './dto/login.dto.js'
-import type {JwtUser} from "../type/RequestJwtType.js"
+import { UsersService } from './users.service';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { ResponseUserDto } from './dto/response-user.dto';
+import {LoginDto} from './dto/login.dto'
+import type {JwtUser} from "../type/RequestJwtType"
 
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor)
