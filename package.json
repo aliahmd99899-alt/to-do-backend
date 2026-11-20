@@ -8,21 +8,23 @@
   "engines": {
     "node": "24.x"
   },
+  
   "scripts": {
     "build": "nest build",
     "deploy": "nest deploy",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start": "NODE_OPTIONS='--experimental-require-module' nest start",
+    "start:dev": "NODE_OPTIONS='--experimental-require-module' nest start --watch",
+    "start:debug": "NODE_OPTIONS='--experimental-require-module' nest start --debug --watch",
+    "start:prod": "NODE_OPTIONS='--experimental-require-module' node dist/main",
     "lint": "oxlint --type-aware src/ test/",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test": "NODE_OPTIONS='--experimental-require-module' jest",
+    "test:watch": "NODE_OPTIONS='--experimental-require-module' jest --watch",
+    "test:cov": "NODE_OPTIONS='--experimental-require-module' jest --coverage",
+    "test:debug": "NODE_OPTIONS='--experimental-require-module' node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "NODE_OPTIONS='--experimental-require-module' jest --config ./test/jest-e2e.json"
   },
+
   "dependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/config": "^4.0.0",
