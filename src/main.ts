@@ -1,11 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module.js';
-import express from 'express'; // ✅ استيراد افتراضي
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  
+
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -17,8 +16,9 @@ async function bootstrap() {
     }),
   );
 
-  // ✅ استخدام app.listen كما يتوقع Vercel
-  await app.listen(process.env.PORT ?? 3000);
+  // إرجاع التطبيق بعد تهيئته
+  return app;
 }
 
-eport default bootstrap();
+// ✅ تصدير التطبيق بشكل صريح ليتعرف عليه Vercel
+export default bootstrap();
