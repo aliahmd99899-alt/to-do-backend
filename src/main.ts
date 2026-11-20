@@ -18,11 +18,12 @@ async function bootstrap() {
     }),
   );
 
-  // إعادة استدعاء listen أمر ضروري ليتعرف Vercel على الخادم
-  await app.listen(process.env.PORT ?? 3000);
+  // 1. إزالة استدعاء app.listen() تماماً
+  // await app.listen(3000); 
 
-  // تصدير التطبيق لـ Vercel
+  // 2. إرجاع كائن التطبيق (app) بدلاً من تشغيله
   return app;
 }
 
+// 3. تصدير التطبيق كـ default export ليتعرف عليه Vercel
 export default bootstrap();
