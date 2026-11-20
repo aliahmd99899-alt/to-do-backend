@@ -1,11 +1,13 @@
+// src/main.ts
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule, ObserveInstrument } from './app.module.js';
+import { AppModule } from './app.module.js';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import * as express from 'express';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    instrument: ObserveInstrument,
-  });
+  const server = express();
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -18,12 +20,10 @@ async function bootstrap() {
     }),
   );
 
-  // 1. إزالة استدعاء app.listen() تماماً
-  // await app.listen(3000); 
+  await app.init(); // تهيئة التطبيق دون بدء الاستماع
 
-  // 2. إرجاع كائن التطبيق (app) بدلاً من تشغيله
-  return app;
+  return server; // إرجاع خادم Express
 }
 
-// 3. تصدير التطبيق كـ default export ليتعرف عليه Vercel
+// تصدير الخادم مباشرة ليتعامل معه Vercel
 export default bootstrap();
