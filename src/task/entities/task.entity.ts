@@ -7,6 +7,7 @@ import {
   Index,
   CreateDateColumn,
   UpdateDateColumn,
+  Relation, // 1. قمنا بإضافة هذا الاستيراد
 } from 'typeorm';
 import { Project } from '../../project/entities/project.entity.js';
 import { User } from '../../users/entities/user.entity.js';
@@ -34,13 +35,13 @@ export class Task {
     onDelete: 'SET NULL',
   })
   @JoinColumn({ name: 'projectId' })
-  project: Project | null;
+  project: Relation<Project> | null; // 2. تم تغليف Project بـ Relation
 
   @Column({ nullable: true }) projectId: string | null;
 
   @ManyToOne(() => User, (u) => u.tasks, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
-  user: User;
+  user: Relation<User>; // 3. تم تغليف User بـ Relation
 
   @Index() @Column() userId: string;
 
