@@ -18,7 +18,7 @@ import { CreateUserDto } from './dto/create-user.dto.js';
 import { UpdateUserDto } from './dto/update-user.dto.js';
 import { ResponseUserDto } from './dto/response-user.dto.js';
 import {LoginDto} from './dto/login.dto.js'
-import type {JwtUser} from "../type/RequestJwtType"
+import type {JwtUser} from "../type/RequestJwtType.js"
 
 @Controller('users')
 @UseInterceptors(ClassSerializerInterceptor)
