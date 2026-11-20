@@ -8,8 +8,8 @@ import {
   CreateDateColumn,
 } from 'typeorm';
 import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
-import type { User } from '../../users/entities/user.entity.js';
-import type{ Task } from '../../task/entities/task.entity.js';
+import { User } from '../../users/entities/user.entity.js';
+import { Task } from '../../task/entities/task.entity.js';
 
 @Entity('projects')
 export class Project {
