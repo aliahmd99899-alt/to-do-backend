@@ -1,10 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule, ObserveInstrument } from './app.module.js'; // ← استورد ObserveInstrument
+import { AppModule, ObserveInstrument } from './app.module.js';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
-    instrument: ObserveInstrument, // ← السطر المفقود
+    instrument: ObserveInstrument,
   });
 
   app.useGlobalPipes(
@@ -18,7 +18,12 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(3000);
+  // 1. احذف السطر الخاص بـ listen تماماً
+  // await app.listen(3000);
+
+  // 2. أرجع التطبيق (app) بدلاً من تشغيله
+  return app; 
 }
-bootstrap();
+
+// 3. قم بتصدير الاستدعاء مرة واحدة فقط (احذف السطر bootstrap(); المنفصل)
 export default bootstrap();
