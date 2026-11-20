@@ -6,6 +6,7 @@ import {
   OneToMany,
   JoinColumn,
   CreateDateColumn,
+  Relation, // 1. قمنا بإضافة هذا الاستيراد
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity.js';
 import { Task } from '../../task/entities/task.entity.js';
@@ -20,11 +21,12 @@ export class Project {
 
   @ManyToOne(() => User, (u) => u.projects, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'userId' })
-  user: User;
+  user: Relation<User>; // 2. تم تغليف User بـ Relation
 
   @Column() userId: string;
 
-  @OneToMany(() => Task, (t) => t.project) tasks: Task[];
+  @OneToMany(() => Task, (t) => t.project) 
+  tasks: Relation<Task[]>; // 3. تم تغليف Task بـ Relation
 
   // Populated in ProjectService.findAll(); optional elsewhere.
   tasksCount?: number;
