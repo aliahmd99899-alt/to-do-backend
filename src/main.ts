@@ -16,9 +16,12 @@ async function bootstrap() {
     }),
   );
 
-  // إرجاع التطبيق بعد تهيئته
-  return app;
+  // تهيئة التطبيق دون بدء الاستماع
+  await app.init();
+
+  // إرجاع كائن التطبيق ليتعامل معه Vercel
+  return app.getHttpAdapter().getInstance(); 
 }
 
-// ✅ تصدير التطبيق بشكل صريح ليتعرف عليه Vercel
+// تصدير الخادم ليتعرف عليه Vercel
 export default bootstrap();
