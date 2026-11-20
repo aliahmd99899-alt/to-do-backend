@@ -4,8 +4,8 @@ import {
   Column,
   OneToMany,
   CreateDateColumn,
-  Relation, // 1. أضفنا هذا الاستيراد
 } from 'typeorm';
+import type { Relation } from 'typeorm'; // استيراد Relation كنوع فقط
 import { Exclude } from 'class-transformer';
 import { Project } from '../../project/entities/project.entity.js';
 import { Task } from '../../task/entities/task.entity.js';
